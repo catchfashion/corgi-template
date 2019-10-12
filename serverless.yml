@@ -1,0 +1,26 @@
+service: microservice-template
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+
+plugins:
+  - serverless-prune-plugin
+  - "@vingle/serverless-tag-plugin"
+
+custom:
+  prune:
+    automatic: true
+    number: 5
+
+package:
+  artifact: dst.zip
+
+functions:
+  helloAsync:
+    handler: handlers.helloAsync
+    events:
+      - http:
+          path: hello
+          method: get
