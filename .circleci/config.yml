@@ -1,0 +1,58 @@
+version: 2.1
+
+orbs:
+  slack: circleci/slack@3.2.0
+
+jobs:
+  test:
+    working_directory: ~/corgi-template
+    docker:
+      - image: vingle/lambda-microservice-template:nodejs8.10
+
+    steps:
+      - checkout
+      - run:
+          name: Dependency
+          command: |
+            npm install
+      - run:
+          name: Lint
+          command: |
+            npm run lint
+      - run:
+          name: Test
+          command: |
+            npm run test:ci
+      - slack/status:
+          webhook: https://hooks.slack.com/services/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
+
+  deploy:
+    working_directory: ~/corgi-template
+    docker:
+      - image: vingle/lambda-microservice-template:nodejs8.10
+    steps:
+      - checkout
+      - run:
+          name: Dependency
+          command: |
+            npm install
+      - run:
+          name: Deploy
+          no_output_timeout: 30m
+          command: |
+            npm run deploy:stage
+      - slack/status:
+          webhook: https://hooks.slack.com/services/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
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master

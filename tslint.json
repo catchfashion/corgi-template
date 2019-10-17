@@ -1,3 +1,8 @@
 {
-    "extends": ["@vingle/tslint-preset"]
+  "extends": [
+    "@vingle/tslint-preset"
+  ],
+  "rules": {
+    "max-classes-per-file": false
+  }
 }

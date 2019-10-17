@@ -31,3 +31,7 @@ This template automatically generates OpenAPI3.0 spec, which means you can gener
 once you deploy the application with npm run deploy:prod or npm run deploy:stage, you'll get the url like this  
 https://p0iiz3t3ek.execute-api.us-east-1.amazonaws.com/stage/  
 than you can get the generated OpenAPI spec for https://p0iiz3t3ek.execute-api.us-east-1.amazonaws.com/stage/open-api  
+
+
+# CI
+this repo supports both Github Actions / CircleCI  
