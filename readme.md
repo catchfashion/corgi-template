@@ -1,58 +1,33 @@
-# Microservice Name
+# Corgi-Template
 
-## Bussiness Domain
-Simple, Easy to read, "One Sentence" Description
+This template demonstrates a way to build web API application on lambda with vingle-corgi  
+Initial sample is simple backend for service health system like https://status.slack.com/ 
 
+# Commands
+
+## npm run build
+Build entities schema for open-api spec, also build TSC
 ```
-ex) User Recommendation On Vingle
-    Feed on Vingle
-    Interest Recommendation On Vingle
-```
-
-## Responsibility
-Clear and Specific description about Responsibility of the service.
-be mind that it should specify the "work" that could be directly understandable to developer also. such as "Rendering"  / "Business Logic" / "Persistency" / "Tracking".. etc
-
-```
-ex) user recommendation business logic & recommendation history logging
+    "build:corgi": "vingle-corgi build \"./src/api/entities/\"",
+    "build:tsc": "rm -rf dst && tsc",
+    "build": "npm run build:corgi && npm run build:tsc",
 ```
 
+## npm run lint
 
-## Architecture Diagram
-Simple diagram representing the architecture, which showing
-1. Infrastrcture resources the service is using. such as "DynamoDB" / "RDS"
-2. Other microservices that the service is consuming. such as "Vingle Feed" / "Color Extractor"
-<p align="center"><img width="500px" src="http://www.conceptdraw.com/solution-park/resource/images/solutions/_aws_simple_icons/Computer-and-Networks-AWS-Architecture-Diagram-2-Tier-Auto-Scalable-Web-Application-Architecture-in-1-AZ.png" /></p>
+## npm run run-local:api
+this run vingle-corgi locally, by simulating the behavior of API Gateway with express
 
-## Infrastructures
-Link to resources that deployed. such as link to "Cloudformation" or "Lambda" or "CloudWatch"
+## npm run deploy
+npm run deploy:stage  
+npm run deploy:prod  
 
+## npm run info
+npm run info:stage  
+npm run info:prod  
 
-## Usage
-
-Description about "How developer consume this service"
-
-Most commonly it will be "HTTP Restful API", so than you could just list up the APIs.
-
-```
-Content-Type: 'application/json'
-Authorization: 'token'
-
-GET api/users/recommendations
-POST api/users/recommendations/:recommendationId/feedback
-```
-
-but also, it could be a simple background worker such as Kinesis Stream consumer, or S3 Event handler
-
-in such case, just describe how we can "Use" this service by sending event on Kinesis Stream or S3
-
-
-## Maintainer
-
-Specify who is mainly responsible for this service. meaning of responsible here is that who knows this service most, and who can help and manage other peoples to make change on the service.
-it could be serveral peoples also
-
-```
-ex) spam-checker -> mooyeol
-    TrackTicket -> Kurt / Shin
-```
+# OpenAPI
+This template automatically generates OpenAPI3.0 spec, which means you can generate API client  
+once you deploy the application with npm run deploy:prod or npm run deploy:stage, you'll get the url like this  
+https://p0iiz3t3ek.execute-api.us-east-1.amazonaws.com/stage/  
+than you can get the generated OpenAPI spec for https://p0iiz3t3ek.execute-api.us-east-1.amazonaws.com/stage/open-api  

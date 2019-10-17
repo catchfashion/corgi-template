@@ -1,21 +1,24 @@
 {
-  "name": "lambda-microservice-template",
-  "version": "1.0.1",
-  "description": "Template for microservice using lambda / typescript / serverless",
+  "name": "corgi-template",
+  "version": "1.0.0",
+  "description": "Template for vingle-corgi",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/balmbees/lambda-microservice-template.git"
   },
   "scripts": {
-    "prebuild": "check-engine && rm -rf dst",
-    "build": "tsc",
+    "prebuild": "check-engine",
+    "build:corgi": "vingle-corgi build \"./src/api/entities/\"",
+    "build:tsc": "rm -rf dst && tsc",
+    "build": "npm run build:corgi && npm run build:tsc",
     "postbuild": "cd src && find . -name '*.json' -type f -exec cp {} ../dst/{} \\; && cd ..",
     "prepack": "rm -f dst.zip",
     "pack": "cp package.json package-lock.json dst/ && cd dst && npm ci --production && npm ls && zip -rqy ../dst.zip . && cd ..",
     "pretest": "npm run build -- -p ./tsconfig.test.json",
     "test": "mocha --exit -t 20000 dst/**/__test__/**/*.js",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "run-local:api": "npm run build && vingle-corgi run-local \"./dst/api/index.js\"",
     "deploy": "npm run build && npm run pack && serverless deploy",
     "deploy:stage": "npm run deploy -- -s stage",
     "deploy:prod": "npm run deploy -- -s prod",
@@ -24,7 +27,7 @@
   },
   "engines": {
     "node": "^8.10.0",
-    "npm": "^6.10.2"
+    "npm": "^6.10.0"
   },
   "author": "Kurt Lee",
   "license": "ISC",
@@ -32,7 +35,6 @@
     "@types/chai": "4.2.3",
     "@types/mocha": "5.2.7",
     "@types/node": "8.10.54",
-    "@vingle/serverless-tag-plugin": "1.1.2",
     "@vingle/tslint-preset": "1.0.0",
     "chai": "4.2.0",
     "check-engine": "1.8.1",
@@ -40,6 +42,10 @@
     "serverless": "1.54.0",
     "serverless-prune-plugin": "1.4.1",
     "tslint": "5.20.0",
-    "typescript": "3.6.4"
+    "typescript": "3.6.4",
+    "vingle-corgi-cli": "^1.0.0-beta.3"
+  },
+  "dependencies": {
+    "vingle-corgi": "^3.0.0-beta.9"
   }
 }

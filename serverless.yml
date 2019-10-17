@@ -1,4 +1,4 @@
-service: microservice-template
+service: corgi-template
 
 provider:
   name: aws
@@ -7,7 +7,6 @@ provider:
 
 plugins:
   - serverless-prune-plugin
-  - "@vingle/serverless-tag-plugin"
 
 custom:
   prune:
@@ -18,9 +17,11 @@ package:
   artifact: dst.zip
 
 functions:
-  helloAsync:
-    handler: handlers.helloAsync
+  api:
+    timeout: 30
+    memorySize: 256
+    handler: api.handler
     events:
       - http:
-          path: hello
-          method: get
+          path: /{proxy+}
+          method: any

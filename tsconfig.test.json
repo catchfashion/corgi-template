@@ -9,6 +9,7 @@
         "strictNullChecks": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "resolveJsonModule": true,
         "lib": [
             "es2017"
         ]
