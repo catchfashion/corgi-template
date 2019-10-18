@@ -1,6 +1,6 @@
 {
   "name": "corgi-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template for vingle-corgi",
   "main": "index.js",
   "repository": {
