@@ -3,22 +3,42 @@ on: push
 jobs:
   job:
     runs-on: ubuntu-latest
-    container: vingle/lambda-microservice-template:nodejs8.10
+    container: catchfashion/microservice-ci
     timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: catch
+          MYSQL_USER: catch
+          MYSQL_PASSWORD: password
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1" --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v1
       - name: Prepare
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           npm ci
       - name: Lint
         run: npm run lint
       - name: Test
         run: npm run test:ci
+        env:
+          REDIS_URL: redis://redis:6379/10
+          AFFILIATE_MYSQL_DB_URL: mysql://catch:password@mysql:3306/catch
       - name: Deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: npm run deploy:stage
+        run: |
+          npm run deploy:stage
+          npm run deploy:prod
         env:
-          AWS_DEFAULT_REGION: us-east-1
-          AWS_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

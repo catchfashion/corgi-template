@@ -1,6 +1,6 @@
 {
   "name": "corgi-template",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Template for vingle-corgi",
   "main": "index.js",
   "repository": {
@@ -27,7 +27,7 @@
     "info:prod": "sls info -s prod"
   },
   "engines": {
-    "node": "^8.10.0",
+    "node": "^10.16.0",
     "npm": "^6.10.0"
   },
   "author": "Kurt Lee",
@@ -46,9 +46,9 @@
     "sinon": "^7.5.0",
     "tslint": "5.20.0",
     "typescript": "3.6.4",
-    "vingle-corgi-cli": "^1.0.0-beta.3"
+    "vingle-corgi-cli": "^1.0.2"
   },
   "dependencies": {
-    "vingle-corgi": "^3.0.0-beta.9"
+    "vingle-corgi": "^3.0.1"
   }
 }
