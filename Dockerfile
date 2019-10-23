@@ -3,7 +3,7 @@ FROM node:10.16
 MAINTAINER Kurt Lee "kurt@catchfashion.com"
 
 # Install system programs
-RUN apt-get update && apt-get install -y zip build-essential curl openjdk-7-jdk memcached jq && apt-get clean
+RUN apt-get update && apt-get install -y zip build-essential curl openjdk-8-jdk memcached jq && apt-get clean
 
 # Install Redis
 RUN cd /tmp && \
@@ -18,10 +18,8 @@ RUN cd /tmp && \
 
 # # Install npm 5 in order to use package-lock.json
 # RUN curl -L https://npmjs.org/install.sh | sh
-RUN cd $(npm root -g)/npm && \
-    npm install fs-extra && \
-    sed -i -e s/graceful-fs/fs-extra/ -e s/fs.rename/fs.move/ ./lib/utils/rename.js
-RUN npm install -g npm@5.6.0
+RUN npm install -g npm@6.10.0
 
-# Configure JAVA HOME
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
