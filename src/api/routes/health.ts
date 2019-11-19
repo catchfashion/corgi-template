@@ -14,7 +14,6 @@ export const route = new Namespace(
         "", {
           desc: "get health history", operationId: "getHealthList"
         }, {}, Presenters.HealthList, async function() {
-          const date = this.params.date as string;
           const records = await Health.findAll();
           return {
             data: records, paging: {}
