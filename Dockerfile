@@ -1,4 +1,4 @@
-FROM node:10.16
+FROM node:12.14
 
 MAINTAINER Kurt Lee "kurt@catchfashion.com"
 
