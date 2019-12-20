@@ -18,7 +18,7 @@ RUN cd /tmp && \
 
 # # Install npm 5 in order to use package-lock.json
 # RUN curl -L https://npmjs.org/install.sh | sh
-RUN npm install -g npm@6.10.0
+RUN npm install -g npm@6.13.4
 
 # Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
