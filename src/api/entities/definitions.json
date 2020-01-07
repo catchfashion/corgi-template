@@ -1,6 +1,39 @@
 {
   "Health": {
     "additionalProperties": false,
+    "properties": {
+      "date": {
+        "type": "string"
+      },
+      "services": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "Good",
+                "Bad",
+                "Soso"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "status"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "date",
+      "services"
+    ],
     "type": "object"
   },
   "HealthList": {

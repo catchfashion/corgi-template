@@ -46,8 +46,8 @@
     "serverless-prune-plugin": "1.4.1",
     "sinon": "^7.5.0",
     "tslint": "5.20.0",
-    "typescript": "^3.7.2",
-    "vingle-corgi-cli": "^1.0.2"
+    "typescript": "^3.7.3",
+    "vingle-corgi-cli": "^1.1.0"
   },
   "dependencies": {
     "vingle-corgi": "^3.0.1"
