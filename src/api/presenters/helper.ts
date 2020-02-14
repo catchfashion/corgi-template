@@ -1,7 +1,7 @@
 import { Presenter } from "vingle-corgi";
 
 export function createPresenter<Model, Entity>(
-  entityClass: { name: string, new (): Entity },
+  entityClass: { name: string, new (...args: any[]): Entity },
   present: (model: Model) => Promise<Entity>,
 ) {
   const presenter: Presenter<Model, Entity> = {
