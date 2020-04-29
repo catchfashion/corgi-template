@@ -41,7 +41,7 @@
     "@vingle/tslint-preset": "1.0.0",
     "chai": "4.2.0",
     "check-engine": "1.8.1",
-    "mocha": "6.2.1",
+    "mocha": "^7.1.2",
     "serverless": "^1.68.0",
     "serverless-prune-plugin": "1.4.1",
     "sinon": "^7.5.0",
