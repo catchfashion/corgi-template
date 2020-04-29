@@ -13,7 +13,7 @@ export const route = new Namespace(
       PresenterRouteFactory.GET(
         "", {
           desc: "get health history", operationId: "getHealthList"
-        }, {}, Presenters.HealthList, async function() {
+        }, {}, Presenters.HealthList, async () => {
           const records = await Health.findAll();
           return {
             data: records, paging: {}
