@@ -26,6 +26,14 @@ npm run deploy:prod
 npm run info:stage  
 npm run info:prod  
 
+# Logging
+1. Set service, function information to catch-log's definitions.json
+    - service means service attribute in service's serverless.yml
+    - function menas child attributes of function attribute in service's serverless.yml
+2. Deploy catch-log
+3. Adding log for service
+4. Deploy service
+
 # OpenAPI
 This template automatically generates OpenAPI3.0 spec, which means you can generate API client  
 once you deploy the application with npm run deploy:prod or npm run deploy:stage, you'll get the url like this  

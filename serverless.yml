@@ -2,7 +2,7 @@ service: corgi-template
 
 provider:
   name: aws
-  runtime: nodejs12.x  
+  runtime: nodejs12.x
   stage: prod
   region: ap-northeast-2
 
@@ -26,3 +26,8 @@ functions:
       - http:
           path: /{proxy+}
           method: any
+
+  cron:
+    timeout: 30
+    memorySize: 256
+    handler: cron.handler

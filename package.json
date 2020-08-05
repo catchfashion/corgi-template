@@ -50,6 +50,7 @@
     "vingle-corgi-cli": "^1.1.0"
   },
   "dependencies": {
+    "@catchfashion/log-sdk": "0.0.19",
     "vingle-corgi": "^3.0.1"
   }
 }
