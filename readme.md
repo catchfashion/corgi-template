@@ -8,9 +8,8 @@ Initial sample is simple backend for service health system like https://status.s
 ## npm run build
 Build entities schema for open-api spec, also build TSC
 ```
-    "build:corgi": "vingle-corgi build \"./src/api/entities/\"",
     "build:tsc": "rm -rf dst && tsc",
-    "build": "npm run build:corgi && npm run build:tsc",
+    "build": "npm run build:tsc",
 ```
 
 ## npm run lint
