@@ -1,8 +1,9 @@
 import {
+  Event,
   Namespace,
   Router,
   Routes,
-} from "vingle-corgi";
+} from "@serverless-seoul/corgi";
 
 export function createResolver(routes: Routes) {
   const resolver = function resolve(
@@ -13,7 +14,7 @@ export function createResolver(routes: Routes) {
     body?: string,
   ) {
     const router = new Router([
-      new Namespace("", {
+      new Namespace("", {}, {
         children: routes,
       }),
     ], {});
@@ -22,9 +23,9 @@ export function createResolver(routes: Routes) {
       headers,
       httpMethod: method,
       path,
-      queryStringParameters,
-      body,
-    }, { timeout: 1000 });
+      queryStringParameters: queryStringParameters ?? null,
+      body: body ?? null,
+    } as Event, { timeout: 1000 });
   };
 
   return resolver;

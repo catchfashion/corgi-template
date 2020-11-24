@@ -16,7 +16,7 @@ describe("Health Routes", () => {
 
       expect(res.statusCode).to.be.eq(200);
       expect(JSON.parse(res.body)).to.be.deep.eq(
-        await Presenters.HealthList.present({ data: await Models.Health.findAll(), paging: {} })
+        await Presenters.HealthList.present({ data: await Models.Health.findAll(), paging: {} }),
       );
     });
   });

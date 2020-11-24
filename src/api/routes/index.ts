@@ -1,4 +1,4 @@
-import { Routes } from "vingle-corgi";
+import { Routes } from "@serverless-seoul/corgi";
 
 import { route as HealthRoute } from "./health";
 

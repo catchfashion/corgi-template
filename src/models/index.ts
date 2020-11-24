@@ -1,7 +1,7 @@
 export class Health {
   // Mock methods
   public static async findByDate(date: string) {
-    return (await this.findAll()).find(h => h.date.toString() === date);
+    return (await this.findAll()).find((h) => h.date.toString() === date);
   }
 
   public static async findAll() {
@@ -27,9 +27,9 @@ export class Health {
   constructor(
     public date: Date,
     public services: Array<{
-      name: string,
-      status: "Good" | "Bad" | "Soso",
-    }>
+      name: string;
+      status: "Good" | "Bad" | "Soso";
+    }>,
   ) {
   }
 }

@@ -7,7 +7,7 @@ interface Event {
 
 export const handler = wrapLambdaHandler({
   service: "corgi-template",
-  operationId: "cron"
+  operationId: "cron",
 }, async (event: Event) => {
   //
 });

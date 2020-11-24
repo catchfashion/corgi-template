@@ -1,11 +1,17 @@
-export class DataLayout<T> {
-  public data!: T;
+import { TSchema, Type } from "@serverless-seoul/typebox";
+
+export function DataLayout<T extends TSchema>(target: T) {
+  return Type.Object({
+    data: target,
+  });
 }
 
-export class PaginatedDataLayout<T> {
-  public data!: T[];
-  public paging!: {
-    after?: string;
-    before?: string;
-  };
+export function PaginatedDataLayout<T extends TSchema>(target: T) {
+  return Type.Object({
+    data: Type.Array(target),
+    paging: Type.Object({
+      before: Type.Optional(Type.String()),
+      after: Type.Optional(Type.String()),
+    }),
+  });
 }
