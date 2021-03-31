@@ -37,7 +37,7 @@
     "@types/mocha": "5.2.7",
     "@types/node": "8.10.54",
     "@types/sinon": "^7.5.0",
-    "@catchfashion/tslint-preset": "^1.0.2",
+    "@catchfashion/tslint-preset": "^1.1.1",
     "chai": "4.2.0",
     "check-engine": "1.8.1",
     "mocha": "^7.1.2",
