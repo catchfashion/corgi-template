@@ -27,8 +27,8 @@
     "info:prod": "sls info -s prod"
   },
   "engines": {
-    "node": "^12.14.0",
-    "npm": "^6.10.0"
+    "node": "^14.17.6",
+    "npm": "^6.14.15"
   },
   "author": "Kurt Lee",
   "license": "ISC",
@@ -36,7 +36,7 @@
     "@catchfashion/tslint-preset": "^1.1.2",
     "@types/chai": "4.2.3",
     "@types/mocha": "5.2.7",
-    "@types/node": "8.10.54",
+    "@types/node": "^8.10.54",
     "@types/sinon": "^7.5.0",
     "chai": "4.2.0",
     "check-engine": "1.8.1",

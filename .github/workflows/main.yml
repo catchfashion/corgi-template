@@ -3,7 +3,7 @@ on: push
 jobs:
   job:
     runs-on: ubuntu-latest
-    container: catchfashion/microservice-ci:node12
+    container: catchfashion/microservice-ci:node14
     timeout-minutes: 15
     services:
       mysql:
