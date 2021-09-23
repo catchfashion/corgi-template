@@ -1,4 +1,4 @@
-FROM node:10.16
+FROM node:14.17
 
 MAINTAINER Kurt Lee "kurt@catchfashion.com"
 
@@ -18,7 +18,7 @@ RUN cd /tmp && \
 
 # # Install npm 5 in order to use package-lock.json
 # RUN curl -L https://npmjs.org/install.sh | sh
-RUN npm install -g npm@6.10.0
+RUN npm install -g npm@6.14.15
 
 # Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
