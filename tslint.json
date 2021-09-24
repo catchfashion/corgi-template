@@ -1,8 +1,0 @@
-{
-  "extends": [
-    "@catchfashion/tslint-preset"
-  ],
-  "rules": {
-    "max-classes-per-file": false
-  }
-}
