@@ -49,7 +49,7 @@
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@catchfashion/log-sdk": "^1.1.0",
+    "@catchfashion/log-sdk": "^1.2.0",
     "@catchfashion/microservice-sdk": "^1.74.0",
     "@serverless-seoul/corgi": "^4.1.3",
     "@serverless-seoul/typebox": "^1.1.0",
