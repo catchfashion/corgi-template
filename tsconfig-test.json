@@ -1,20 +1,8 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2019",
-        "noImplicitAny": true,
-        "sourceMap": true,
-        "outDir": "dst",
-        "strict": true,
-        "noUnusedLocals": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "resolveJsonModule": true,
-        "lib": [
-            "es2019"
-        ]
+        "sourceMap": false,
+        "declaration": false
     },
-    "include": [
-        "src/**/*"
-    ]
-}
+    "exclude": []
+  }

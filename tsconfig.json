@@ -4,15 +4,14 @@
         "target": "es2019",
         "noImplicitAny": true,
         "sourceMap": true,
+        "rootDir": "src",
         "outDir": "dst",
         "strict": true,
         "noUnusedLocals": true,
+        "noImplicitOverride": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "resolveJsonModule": true,
-        "lib": [
-            "es2019"
-        ]
+        "resolveJsonModule": true
     },
     "exclude": [
         "**/__test__/"
